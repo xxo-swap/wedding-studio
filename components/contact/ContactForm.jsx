@@ -1,23 +1,46 @@
+"use client";
+
 export default function ContactForm() {
   return (
-    <form className="grid gap-5 max-w-md w-full bg-surface p-8 border border-border rounded-2xl">
-      <input
-        placeholder="Name"
-        className="p-3 bg-bg border border-border rounded-lg text-text focus:outline-none focus:ring-2 focus:ring-primary"
-      />
-      <input
-        placeholder="Email"
-        className="p-3 bg-bg border border-border rounded-lg text-text focus:outline-none focus:ring-2 focus:ring-primary"
-      />
-      <textarea
-        placeholder="Wedding Details"
-        className="p-3 bg-bg border border-border rounded-lg text-text h-32 resize-none focus:outline-none focus:ring-2 focus:ring-primary"
-      />
-      <button
-        className="bg-primary text-bg py-3 rounded-full tracking-widest uppercase hover:opacity-80 transition"
-      >
-        Send Inquiry
-      </button>
-    </form>
+    <main className="w-full min-h-screen flex items-center justify-center bg-gray-100 px-4">
+      <div className="w-full max-w-lg bg-white shadow-md rounded-xl p-8">
+        <h1 className="text-2xl font-semibold text-center mb-2">
+          Start with a hello.
+        </h1>
+        <p className="text-center text-gray-600 mb-6">
+          Share a few details. We will take care of the rest.
+        </p>
+
+        <form className="flex flex-col gap-4">
+          <input
+            type="text"
+            placeholder="Name"
+            className="border-b border-gray-300 focus:border-black outline-none py-2"
+          />
+          <input
+            type="text"
+            placeholder="Event"
+            className="border-b border-gray-300 focus:border-black outline-none py-2"
+          />
+          <input
+            type="date"
+            placeholder="Date"
+            className="border-b border-gray-300 focus:border-black outline-none py-2"
+          />
+          <input
+            type="tel"
+            placeholder="Contact"
+            className="border-b border-gray-300 focus:border-black outline-none py-2"
+          />
+
+          <button
+            type="submit"
+            className="mt-4 w-full bg-black text-white py-3 uppercase tracking-wide hover:opacity-90 transition"
+          >
+            Done
+          </button>
+        </form>
+      </div>
+    </main>
   );
 }

@@ -1,6 +1,7 @@
 import Header from "@/components/header/Header";
+import Footer from "@/components/footer/Footer";
+import ScrollWrapper from "@/components/animations/ScrollWrapper";
 import "./globals.css";
-
 
 export const metadata = {
   title: "Luxury Wedding Photographer | Aarav Studios",
@@ -10,8 +11,16 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <Header/>
-      <body className="bg-black text-white">{children}</body>
+      <body className="bg-black text-white">
+        {/* Wrap your app content inside ScrollWrapper */}
+        <ScrollWrapper>
+          <div className="">
+            <Header />
+            {children}
+            <Footer />
+          </div>
+        </ScrollWrapper>
+      </body>
     </html>
   );
 }

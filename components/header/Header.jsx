@@ -1,35 +1,45 @@
 "use client";
+
 import Link from "next/link";
+import {  use, useRef } from "react";
 import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-import { useRef } from "react";
+import { useEffect } from "react";
 
 export default function Header() {
-  const navRef = useRef(null);
+    const headerRef = useRef(null);
 
-  useGSAP(() => {
-    gsap.from(".nav-item", {
-      y: -30,
-      opacity: 0,
-      stagger: 0.12,
-      duration: 0.8,
-      ease: "power3.out"
-    });
-  }, { scope: navRef });
+    useEffect
+    (() => {
+      
+      gsap.to(headerRef.current, {
+        opacity: 0,
+        scrollTrigger: {
+          trigger: headerRef.current,
+          start: "top top",
+          end: "+=100",
+          scrub: true,
+          pin: true,
+          pinSpacing: false,
+        }
+      });
+
+    }, []);
 
   return (
-    <header className="fixed top-0 w-full z-50 bg-bg/80 backdrop-blur-md border-b border-border text-text">
-      <nav ref={navRef} className="max-w-7xl mx-auto px-6 py-2 flex justify-between items-center min-h-[64px]">
-        <Link href="/" className="text-xl font-serif tracking-widest nav-item hover:text-primary transition-colors duration-200">
+    <header ref={headerRef} className="relative top-0 left-0 right-0 z-50 pointer-events-auto bg-cyan-800" >
+      <div className="max-w-[1440px] h-[50px] px-[20px] mx-auto flex items-center justify-between text-black">
+        <Link href="/about" className="">
+          About
+        </Link>
+
+        <Link href="/" className="cursor-pointer font-semibold tracking-widest">
           Wedding Studio
         </Link>
 
-        <div className="flex gap-8 text-sm uppercase tracking-widest">
-          <Link href="/portfolio" className="nav-item hover:text-primary transition-colors duration-200">Portfolio</Link>
-          <Link href="/about" className="nav-item hover:text-primary transition-colors duration-200">About</Link>
-          <Link href="/contact" className="nav-item hover:text-primary transition-colors duration-200">Contact</Link>
-        </div>
-      </nav>
+        <Link href="/contact" className="">
+          Contact
+        </Link>
+      </div>
     </header>
   );
 }
