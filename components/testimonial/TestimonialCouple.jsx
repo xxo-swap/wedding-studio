@@ -56,14 +56,14 @@ export default function TestimonialCouple({ couples = [] }) {
   };
 
   return (
-    <div className="w-screen h-screen flex flex-col items-center justify-center gap-3">
+    <div className="h-screen flex flex-col items-center justify-center gap-3">
       {/* Image Area */}
       <div
         ref={imageWrapRef}
         onMouseMove={handleMove}
         onClick={handleClick}
         // onMouseLeave={() => gsap.to(cursorRef.current, { opacity: 0 })}
-        className="relative w-[100vw] h-[70vh] overflow-hidden cursor-none"
+        className="relative w-[100%] h-[70vh] overflow-hidden cursor-none"
       >
         <Image
           src={couples[currentIndex].image}

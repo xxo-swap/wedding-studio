@@ -32,10 +32,10 @@ export default function FeaturedText() {
 
     // Horizontal parallax on scroll using ScrollTrigger
     gsap.to(top.current, {
-      xPercent: -2, // move left
+      xPercent: -1, // move left
       ease: "power1.inOut",
       scrollTrigger: {
-        trigger: top.current,
+        trigger: middle.current,
         start: "top bottom",
         end: "bottom top",
         scrub: true,
@@ -43,10 +43,10 @@ export default function FeaturedText() {
     });
 
     gsap.to(bottom.current, {
-      xPercent: 2, // move right
+      xPercent: 1, // move right
       ease: "power1.inOut",
       scrollTrigger: {
-        trigger: bottom.current,
+        trigger: middle.current,
         start: "top bottom",
         end: "bottom -50%",
         scrub: true,
@@ -57,7 +57,7 @@ export default function FeaturedText() {
   }, []);
 
   return (
-    <div className="h-[150vh] flex flex-col items-center justify-center gap-6">
+    <div className="h-[150vh] flex flex-col items-center justify-center gap-6 overflow-clip">
       
       {/* Top Line */}
       <div ref={top} className="text-5xl uppercase whitespace-nowrap flex gap-4 font-black opacity-60">

@@ -3,10 +3,12 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { SplitText } from "gsap/SplitText";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(SplitText);
+gsap.registerPlugin(SplitText, ScrollTrigger);
 
 export default function TestimonialText() {
+  const sectionRef = useRef(null);
   const headingRef = useRef(null);
   const paraRef = useRef(null);
 
@@ -15,47 +17,42 @@ export default function TestimonialText() {
     let splitPara;
 
     document.fonts.ready.then(() => {
-      splitHeading = SplitText.create(headingRef.current, {
-        type: "chars",
-        charsClass: "char"
-      });
+      splitHeading = SplitText.create(headingRef.current, { type: "chars" });
+      splitPara = SplitText.create(paraRef.current, { type: "chars" });
 
-      splitPara = SplitText.create(paraRef.current, {
-        type: "chars",
-        charsClass: "char"
-      });
-
-      gsap.fromTo(
-        splitHeading.chars,
-        { opacity: 0, y: 30 },
-        {
-          opacity: 1,
-          y: 0,
-          stagger: 0.03,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: headingRef.current,
-            start: "top 80%",
-            end: "bottom 60%",
-            toggleActions: "play none none reverse"
-          }
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top top",
+          end: "+=1000",          // 👈 scroll distance
+          scrub: true,
+          pin: true,
+          pinSpacing:true,
+          anticipatePin: 1,
         }
-      );
+      });
 
-      gsap.fromTo(
-        splitPara.chars,
+      tl.fromTo(
+        splitHeading.chars,
         { opacity: 0, y: 20 },
         {
           opacity: 1,
           y: 0,
-          stagger: 0.01,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: paraRef.current,
-            start: "top 85%",
-            toggleActions: "play none none reverse"
-          }
+          stagger: 0.05,
+          ease: "power2.out"
         }
+      );
+
+      tl.fromTo(
+        splitPara.chars,
+        { opacity: 0, y: 15 },
+        {
+          opacity: 1,
+          y: 0,
+          stagger: 0.02,
+          ease: "power2.out"
+        },
+        "-=0.3" // slight overlap
       );
     });
 
@@ -67,7 +64,10 @@ export default function TestimonialText() {
   }, []);
 
   return (
-    <section className="h-[100vh] flex flex-col items-center justify-center text-center gap-4 overflow-hidden">
+    <section
+      ref={sectionRef}
+      className="h-screen flex flex-col items-center justify-center text-center gap-4 overflow-hidden"
+    >
       <h1
         ref={headingRef}
         className="text-5xl font-black uppercase tracking-wide whitespace-nowrap"

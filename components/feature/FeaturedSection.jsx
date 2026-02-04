@@ -6,7 +6,8 @@ export default function FeaturedSection({ FeaturedWeddingCouples }) {
 
 
   return (
-    <div >
+    <section className="w-full">
+      <div className="max-w-[1440px] mx-auto" >
         <FeaturedText />
         {
             FeaturedWeddingCouples.map((couple, index) => (
@@ -14,5 +15,6 @@ export default function FeaturedSection({ FeaturedWeddingCouples }) {
             ))
         }
     </div>
+    </section>
   );
 }

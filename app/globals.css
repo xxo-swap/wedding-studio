@@ -1,12 +1,10 @@
 @import "tailwindcss";
 
-
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
-
 
 html {
   height: 100%;
@@ -22,20 +20,15 @@ body {
   line-height: 1.5;
 }
 
-
-
 .gallery-container {
- transform-style:   preserve-3d;
- perspective: 2000px;
- will-change: transform;
-
+  transform-style: preserve-3d;
+  perspective: 2000px;
+  will-change: transform;
 }
 
 .gallery {
-
   transform-origin: center;
   will-change: transform;
-
 }
 
 .card {
@@ -68,3 +61,26 @@ body {
   backface-visibility: hidden;
   transform: translateZ(0);
 }
+
+.final-layout {
+
+  gap: 1vh;
+  justify-content: center;
+  align-content: center;
+}
+
+@media (min-width: 768px) {
+  .final-layout {
+    grid-template-columns: repeat(3, 100vw);
+    grid-template-rows: repeat(4, 49.5vh);
+  }
+}
+
+@media (max-width: 767px) {
+  .final-layout {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(9, 70vh);
+    gap: 2vh;
+  }
+}
+
