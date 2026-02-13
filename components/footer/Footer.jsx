@@ -9,7 +9,7 @@ export default function FooterMinimal() {
         
         {/* Brand / Tagline */}
         <div className="col-span-2 md:col-span-2">
-          <h3 className="font-display text-2xl mb-4 text-primary">Studio Name</h3>
+          <h3 className="font-display text-2xl mb-4 text-primary">Swastik Pictures</h3>
           <p className="text-primary/70 max-w-sm text-xs md:text-sm">Crafting cinematic wedding films with a focus on raw emotion.</p>
         </div>
 
@@ -23,7 +23,7 @@ export default function FooterMinimal() {
         {/* Contact Column */}
         <div className="flex flex-col gap-3 text-xs md:text-sm">
           <span className="text-secondary mb-2">Contact</span>
-          <a href="tel:6386760485" className="hover:text-secondary">+91 6386760485</a>
+          <a href="tel:6386760485" className="hover:text-secondary">+91 8181816721</a>
           <a href="mailto:contact@email.com" className="hover:text-secondary">Email</a>
         </div>
 

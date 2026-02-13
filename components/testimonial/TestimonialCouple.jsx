@@ -9,6 +9,7 @@ export default function TestimonialCouple({ couples = [] }) {
   const cursorRef = useRef(null);
   const imageWrapRef = useRef(null);
   const total = couples.length;
+  console.log("Couples in TestimonialCouple:", couples[0].testimonial.caption);
 
   const next = () => setCurrentIndex((i) => (i + 1) % total);
   const prev = () => setCurrentIndex((i) => (i - 1 + total) % total);
@@ -66,7 +67,7 @@ export default function TestimonialCouple({ couples = [] }) {
         className="relative w-[100%] h-[70vh] overflow-hidden cursor-none"
       >
         <Image
-          src={couples[currentIndex].image}
+          src={couples[currentIndex].testimonial.coverImage}
         // onMouseEnter={() => gsap.to(cursorRef.current, { opacity: 1 })}
           alt={couples[currentIndex].name}
           fill
@@ -77,10 +78,10 @@ export default function TestimonialCouple({ couples = [] }) {
       {/* Text Block */}
       <div className=" flex flex-col items-center justify-center">
         <div className="text-sm uppercase tracking-widest opacity-70">
-          {couples[currentIndex].name}
+          {couples[currentIndex].brideName} & {couples[currentIndex].groomName}
         </div>
         <p className="text-base leading-relaxed opacity-80 italic">
-          “{couples[currentIndex].caption}”
+          “{couples[currentIndex].testimonial.caption}”
         </p>
       </div>
 

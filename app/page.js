@@ -6,19 +6,20 @@ import FeaturedSection from "@/components/feature/FeaturedSection";
 import TestimonialSection from "@/components/testimonial/TestimonialSection";
 import ScrollPathSection from "@/components/ScrollPathSection";
 import Hero1 from "@/components/hero/Hero1";
-import { FeaturedWeddingCouples, TestimonialCouples } from "@/src/data/weddings";
+import { weddings } from "@/src/data/weddings";
 
 export default function Home() {
 
-
+  const featuredWeddings = weddings.filter(w => w.featured);
+  const testimonials = weddings.filter(w => w.testimonial);
 
   return (
     <>
       <Hero />
       <Hero1 />
       <ScrollPathSection />
-      <FeaturedSection FeaturedWeddingCouples={FeaturedWeddingCouples} />
-      <TestimonialSection TestimonialCouples={TestimonialCouples} />
+      <FeaturedSection couples={featuredWeddings} />
+      <TestimonialSection TestimonialCouples={testimonials} />
     </>
 
   );

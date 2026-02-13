@@ -1,12 +1,14 @@
 import { generateSlug } from "../utils/slug";
 
-
 export const weddings = [
   {
     slug: generateSlug("Shilpa", "Ankush"),
     brideName: "Shilpa",
     groomName: "Ankush",
     folder: "/client1",
+    featured: true,
+    featuredImage: "/client1/3.webp",
+    testimonial: true,
     images: [
       "/client1/1.webp",
       "/client1/2.JPG",
@@ -22,7 +24,7 @@ export const weddings = [
     ],
     testimonial: {
       caption: "The most beautiful day of our lives!",
-      coverImage: "/client1/3.webp",
+      coverImage: "/client1/7.jpg",
     }
   },
   {
@@ -30,6 +32,9 @@ export const weddings = [
     brideName: "Rakul",
     groomName: "Rahul",
     folder: "/client2",
+    featured: true,
+    featuredImage: "/client2/1.webp",
+    testimonial: true,
     images: [
       "/client2/1.JPG",
       "/client2/1.webp",
@@ -45,7 +50,7 @@ export const weddings = [
     ],
     testimonial: {
       caption: "Absolutely magical!",
-      coverImage: "/client2/1.webp",
+      coverImage: "/client2/8.jpg",
     }
   }
 ];
