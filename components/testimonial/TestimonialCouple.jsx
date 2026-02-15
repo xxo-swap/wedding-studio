@@ -113,7 +113,7 @@ export default function TestimonialCouple({ couples = [] }) {
 
     const rect = imageWrapRef.current.getBoundingClientRect();
     cursorRef.current.innerText =
-      e.clientX - rect.left < rect.width / 2 ? "PREV" : "NEXT";
+      e.clientX - rect.left < rect.width / 2 ? "<" : ">";
   };
 
   if (!total) return null;
@@ -125,9 +125,8 @@ export default function TestimonialCouple({ couples = [] }) {
     >
       <div
         ref={cursorRef}
-        className="fixed top-0 left-0 z-50 pointer-events-none hidden md:flex items-center justify-center w-20 h-20 rounded-full border border-primary/20 backdrop-blur-md text-primary text-[10px] tracking-widest uppercase font-ui -translate-x-1/2 -translate-y-1/2"
+        className="fixed top-0 left-0 z-50 pointer-events-none hidden md:flex items-center justify-center w-20 h-20 text-primary text-[40px] tracking-widest uppercase font-ui -translate-x-1/2 -translate-y-1/2"
       />
-
       <div className="max-w-7xl mx-auto w-full px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
 
         {/* IMAGE SIDE */}
@@ -146,6 +145,7 @@ export default function TestimonialCouple({ couples = [] }) {
           >
             <div ref={slidesContainerRef} className="absolute inset-0">
               {couples.map((couple, i) => (
+                console.log(couple.testimonial.coverImage) ||
                 <div
                   key={`slide-${couple.id || i}`}
                   className="absolute inset-0 will-change-transform overflow-hidden"
