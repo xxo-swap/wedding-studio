@@ -70,7 +70,7 @@ export default function ContactPage() {
         >
           <div>
             <h1 className="font-display text-6xl md:text-8xl text-primary leading-none mb-8 reveal-text">
-              Let’s Make <br /> <span className="italic">History.</span>
+              Let’s Capture <br /> <span className="italic">Memory.</span>
             </h1>
             <p className="font-body text-xl text-primary/80 max-w-md reveal-text">
               We only take on a limited number of stories each year to ensure

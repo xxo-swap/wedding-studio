@@ -54,7 +54,7 @@ function Hero1() {
       className="relative h-screen max-w-[1440px] mx-auto overflow-hidden bg-bg"
     >
       {/* Background Video */}
-      <div ref={imageWrapRef} className="absolute inset-0 z-0 scale-[1.3]">
+      <div ref={imageWrapRef} className="absolute inset-0 z-0 scale-[1.5]">
         <video
           className="absolute inset-0 w-full h-full object-cover"
           src="/heroVideo.mp4"

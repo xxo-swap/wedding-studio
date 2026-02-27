@@ -17,13 +17,12 @@ export default function Home() {
   return (
     <>
     <Hero1 />
-    <HeroTransition/>
+    <HeroTransition data={{label: "Selected Work", heading1: "Stories Told", heading2: "Through Presence"}} />
     <Hero />
-    <HeroTransition/>
-      
-      <ScrollPathSection />
-      <FeaturedSection couples={featuredWeddings} />
-      <TestimonialSection TestimonialCouples={testimonials} />
+    <HeroTransition data={{label: "Our Approach", heading1: "Crafted With", heading2: "Care"}} />
+    <ScrollPathSection />
+    <FeaturedSection couples={featuredWeddings} />
+    <TestimonialSection TestimonialCouples={testimonials} />
     </>
   );
 }

@@ -89,23 +89,10 @@ body {
   transform: translateZ(0);
 }
 
-.final-layout {
-  gap: 1vh;
-  justify-content: center;
-  align-content: center;
-}
 
-/* @media (min-width: 768px) { */
   .final-layout {
     grid-template-columns: repeat(3, 100vw);
     grid-template-rows: repeat(4, 49.5vh);
   }
-/* } */
 
-/* @media (max-width: 767px) {
-  .final-layout {
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(9, 70vh);
-    gap: 2vh;
-  }
-} */
+

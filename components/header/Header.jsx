@@ -1,18 +1,22 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useRef, useEffect } from "react";
-import { gsap , ScrollTrigger} from "@/lib/gsap";
-
+import { gsap, ScrollTrigger } from "@/lib/gsap";
+import { usePathname } from "next/navigation";
 
 export default function Header() {
   const headerRef = useRef(null);
+  const pathname = usePathname();
 
   useEffect(() => {
     if (!headerRef.current) return;
 
-    const ctx = gsap.context(() => {
+    // Kill any existing ScrollTriggers before creating new ones
+    ScrollTrigger.getAll().forEach((st) => st.kill());
 
+    const ctx = gsap.context(() => {
       const showAnim = gsap
         .from(headerRef.current, {
           yPercent: -100,
@@ -21,16 +25,17 @@ export default function Header() {
         })
         .progress(1);
 
+      // Slide header in/out on scroll
       ScrollTrigger.create({
+        trigger: document.body,
         start: "top top",
-        end: "max",
+        end: 99999,
         onUpdate: (self) => {
-          self.direction === -1
-            ? showAnim.play()
-            : showAnim.reverse();
+          self.direction === -1 ? showAnim.play() : showAnim.reverse();
         },
       });
 
+      // Background color + blur on scroll
       gsap.to(headerRef.current, {
         backgroundColor: "rgba(239, 233, 226, 0.8)",
         backdropFilter: "blur(10px)",
@@ -41,27 +46,10 @@ export default function Header() {
           id: "header-bg",
         },
       });
-
     }, headerRef);
 
     return () => ctx.revert();
-  }, []);
-
-  // Kill active ScrollTriggers before client-side navigation to avoid pin/spacer race conditions
-  const handleNav = () => {
-    try {
-      ScrollTrigger.getAll().forEach((st) => {
-        try {
-          st.kill(true);
-        } catch (e) {
-          // ignore
-        }
-      });
-      ScrollTrigger.refresh();
-    } catch (err) {
-      console.warn("Header: failed to kill ScrollTriggers", err);
-    }
-  };
+  }, [pathname]); // Re-run effect on route change
 
   return (
     <header
@@ -69,30 +57,36 @@ export default function Header() {
       className="fixed top-0 left-0 right-0 z-[100] w-full transition-colors duration-300 border-b border-primary/5"
     >
       <div className="max-w-[1440px] h-[70px] px-6 md:px-12 mx-auto flex items-center justify-between">
+        {/* Left nav */}
         <div className="flex-1 flex justify-start space-x-8">
           <Link
             href="/about"
-            onClick={handleNav}
             className="font-ui text-xs uppercase md:tracking-[0.2em] text-primary hover:text-accent transition-colors"
           >
             About
           </Link>
         </div>
 
+        {/* Logo */}
         <div className="flex-1 flex justify-center">
           <Link
             href="/"
-            onClick={handleNav}
             className="font-display text-xl md:text-3xl text-primary tracking-tighter"
           >
-            Wedding <span className="italic">Studio</span>
+            <Image
+              src="/logo/logo sp.png"
+              width={150}
+              height={40}
+              alt="Wedding Studio Logo"
+              className="ml-2"
+            />
           </Link>
         </div>
 
+        {/* Right nav */}
         <div className="flex-1 flex justify-end">
           <Link
             href="/contact"
-            onClick={handleNav}
             className="font-ui text-xs uppercase md:tracking-[0.2em] text-primary hover:text-accent transition-colors"
           >
             Contact
