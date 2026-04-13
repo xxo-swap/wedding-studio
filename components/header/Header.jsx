@@ -74,7 +74,7 @@ export default function Header() {
             className="font-display text-xl md:text-3xl text-primary tracking-tighter"
           >
             <Image
-              src="/logo/logo sp.png"
+              src="/logo/logo.png"
               width={150}
               height={40}
               alt="Wedding Studio Logo"
