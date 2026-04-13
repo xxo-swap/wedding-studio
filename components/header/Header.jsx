@@ -68,17 +68,20 @@ export default function Header() {
         </div>
 
         {/* Logo */}
+        {/* Logo */}
         <div className="flex-1 flex justify-center">
           <Link
             href="/"
-            className="font-display text-xl md:text-3xl text-primary tracking-tighter"
+            className="flex items-center" // Cleaned up classes for better centering
           >
             <Image
-              src="/logo/logo sp.png"
-              width={150}
-              height={40}
-              alt="Wedding Studio Logo"
-              className="ml-2"
+              src="/logo/logo.png"
+              width={60}            // Adjust width as needed for your design
+              height={60}           // Adjust height as needed
+              alt="Swastik Pictures"
+              className="object-contain"
+              priority              // Add priority so the logo loads instantly
+              style={{ height: "auto", width: "auto" }}
             />
           </Link>
         </div>
