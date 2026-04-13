@@ -87,16 +87,16 @@ export default function ContactPage() {
                 href="mailto:support@swastikpictures.com"
                 className="font-display text-2xl hover:text-accent transition-colors"
               >
-                support@swastikpictures.com
+                connect.swastikpictures.in
               </a>
             </div>
             <div>
               <p className="font-ui text-xs uppercase tracking-[0.2em] text-secondary mb-2">
-                Studio
+                Visit Us At
               </p>
               <p className="font-body text-xl">
-                124 Archive Way, <br />
-                Florence, Italy
+                Nai Bazaar, Brahmpur <br />
+                Chauri Chaura, Gorakhpur
               </p>
             </div>
             <div className="flex gap-6 pt-4">
@@ -149,44 +149,6 @@ export default function ContactPage() {
                   placeholder="City, Country"
                   className="w-full bg-transparent border-b border-primary/20 py-4 font-body text-xl focus:outline-none focus:border-primary transition-colors placeholder:text-primary/20"
                 />
-              </div>
-            </div>
-
-            {/* Investment Dropdown */}
-            <div ref={dropdownRef} className="relative">
-              <label className="font-ui text-xs uppercase tracking-widest text-secondary">
-                Investment Range
-              </label>
-              <div
-                onClick={() => setOpen((prev) => !prev)}
-                className="w-full border-b border-primary/20 py-4 font-body text-xl cursor-pointer flex justify-between items-center transition-colors hover:border-primary"
-              >
-                {selected}
-                <span
-                  className={`transition-transform duration-300 text-secondary ${
-                    open ? "rotate-180" : ""
-                  }`}
-                >
-                  ▾
-                </span>
-              </div>
-              <div
-                className={`absolute left-0 w-full mt-2 bg-bg border border-primary/10 shadow-xl overflow-hidden transition-all duration-300 ${
-                  open ? "max-h-60 opacity-100" : "max-h-0 opacity-0"
-                }`}
-              >
-                {options.map((option) => (
-                  <div
-                    key={option}
-                    onClick={() => {
-                      setSelected(option);
-                      setOpen(false);
-                    }}
-                    className="px-6 py-4 font-body text-lg text-primary hover:bg-primary hover:text-bg transition-colors cursor-pointer"
-                  >
-                    {option}
-                  </div>
-                ))}
               </div>
             </div>
 

@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
 import { gsap } from "@/lib/gsap";
@@ -16,87 +15,85 @@ function Hero1() {
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({
         scrollTrigger: {
-          trigger: heroTextRef.current,
-          start: "top bottom",
+          trigger: containerRef.current,
+          start: "top center",
           end: "bottom top",
           scrub: true,
         },
       });
 
-      // Parallax image
-      tl.to(
-        imageWrapRef.current,
-        {
-          yPercent: 20,
-          ease: "none",
-        },
-        0
-      );
-
-      // Parallax text
-      tl.to(
-        heroTextRef.current,
-        {
-          yPercent: -50,
-          opacity: 0,
-          ease: "none",
-        },
-        0
-      );
+      // Subtle parallax for the video
+      tl.to(imageWrapRef.current, { yPercent: 10, ease: "none" }, 0);
+      
+      // Text fade and slight lift
+      tl.to(heroTextRef.current, { y: -50, opacity: 0, ease: "none" }, 0);
     }, containerRef);
 
     return () => ctx.revert();
   }, []);
 
   return (
-    <div
-      ref={containerRef}
-      className="relative h-screen max-w-[1440px] mx-auto overflow-hidden bg-bg"
-    >
-      {/* Background Video */}
-      <div ref={imageWrapRef} className="absolute inset-0 z-0 scale-[1.5]">
-        <video
-          className="absolute inset-0 w-full h-full object-cover"
-          src="/heroVideo.mp4"
-          autoPlay
-          muted
-          loop
-          playsInline
-        />
-
-        {/* Overlay for contrast */}
-        <div className="absolute inset-0 bg-black/40 z-10" />
-      </div>
-
-      {/* Content */}
+    <section className="bg-black py-20 px-4 md:px-10">
+      {/* CINEMATIC CONTAINER 
+         aspect-[21/9] or aspect-[2.35/1] creates the wide-screen look.
+      */}
       <div
-        ref={heroTextRef}
-        className="relative z-30 flex flex-col items-center justify-center h-full text-center px-6"
+        ref={containerRef}
+        className="relative w-full max-w-[1440px] mx-auto aspect-[21/9] min-h-[400px] overflow-hidden rounded-sm shadow-2xl"
       >
-        <span className="font-ui text-xs tracking-[0.35em] uppercase text-white/70 mb-6">
-          Wedding Films
-        </span>
+        Background Video Wrap
+        <div ref={imageWrapRef} className="absolute inset-0 z-0 scale-[1.1]">
+          <video
+            className="absolute inset-0 w-full h-full object-cover brightness-[0.6] contrast-[1.1] sepia-[0.1] blur-[0.5px]"
+            src="/heroVideo.mp4"
+            autoPlay
+            muted
+            loop
+            playsInline
+          />
 
-        <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-[1.1] text-white font-light">
-          Some Moments Deserve
-          <br />
-          <span className="italic font-normal text-white/90">
-            to Last Forever
+          {/* FILM GRAIN - Moves and hides artifacts */}
+          <div 
+            className="absolute inset-0 z-10 pointer-events-none opacity-[0.12] mix-blend-screen"
+            style={{ backgroundImage: `url('https://res.cloudinary.com/dqcsk8rsc/image/upload/v1664265917/noise_v976nx.gif')` }}
+          />
+
+          {/* MESH TEXTURE - Breaks up pixels */}
+          <div 
+            className="absolute inset-0 z-10 pointer-events-none opacity-[0.15]" 
+            style={{
+              backgroundImage: `radial-gradient(circle, #fff 0.5px, transparent 0.5px)`,
+              backgroundSize: '4px 4px'
+            }}
+          />
+
+          {/* VIGNETTE - Cinematic framing */}
+          <div className="absolute inset-0 z-20 bg-[radial-gradient(circle,transparent_40%,rgba(0,0,0,0.8)_100%)]" />
+        </div>
+
+        {/* Content */}
+        <div
+          ref={heroTextRef}
+          className="relative z-30 flex flex-col items-center justify-center h-full text-center px-6"
+        >
+          <span className="font-ui text-[10px] md:text-xs tracking-[0.5em] uppercase text-white/50 mb-4 block">
+            Gorakhpur • Cinematic 
           </span>
-        </h1>
 
-        <p className="mt-6 max-w-2xl text-sm md:text-base text-white/70 leading-relaxed">
-          Capturing emotion, presence, and atmosphere — not just events, but the
-          feeling that lives beyond the day.
-        </p>
+          <h1 className="font-display text-3xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.1] text-white font-light">
+            Moments Deserve
+            <br />
+            <span className="italic font-normal text-white/90">Forever</span>
+          </h1>
 
-        <Link href="#featured" className="mt-10">
-          <button className="px-10 py-4 rounded-full font-ui text-xs tracking-widest uppercase border border-white/40 text-white hover:bg-white hover:text-primary transition-all duration-500">
-            Explore Stories
-          </button>
-        </Link>
+          <Link href="#featured" className="mt-8 group">
+            <button className="px-8 py-3 rounded-full font-ui text-[9px] tracking-[0.3em] uppercase border border-white/20 text-white group-hover:bg-white group-hover:text-black transition-all duration-500">
+              Watch Film
+            </button>
+          </Link>
+        </div>
       </div>
-    </div>
+    </section>
   );
 }
 

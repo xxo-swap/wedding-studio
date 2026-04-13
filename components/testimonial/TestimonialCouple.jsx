@@ -3,7 +3,6 @@
 import { useState, useRef, useLayoutEffect, useCallback } from "react";
 import Image from "next/image";
 import { gsap } from "@/lib/gsap";
-import { HeartIcon } from "../feature/FeaturedCouple";
 
 export default function TestimonialCouple({ couples = [] }) {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -123,12 +122,13 @@ export default function TestimonialCouple({ couples = [] }) {
       ref={containerRef}
       className="relative w-full min-h-screen bg-bg text-primary flex items-center overflow-hidden py-20"
     >
+      {/* CUSTOM CURSOR */}
       <div
         ref={cursorRef}
         className="fixed top-0 left-0 z-50 pointer-events-none hidden md:flex items-center justify-center w-20 h-20 text-primary text-[40px] tracking-widest uppercase font-ui -translate-x-1/2 -translate-y-1/2"
       />
-      <div className="max-w-7xl mx-auto w-full px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
 
+      <div className="max-w-7xl mx-auto w-full px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         {/* IMAGE SIDE */}
         <div className="lg:col-span-7 relative">
           <div
@@ -145,7 +145,6 @@ export default function TestimonialCouple({ couples = [] }) {
           >
             <div ref={slidesContainerRef} className="absolute inset-0">
               {couples.map((couple, i) => (
-                console.log(couple.testimonial.coverImage) ||
                 <div
                   key={`slide-${couple.id || i}`}
                   className="absolute inset-0 will-change-transform overflow-hidden"
@@ -155,6 +154,7 @@ export default function TestimonialCouple({ couples = [] }) {
                     src={couple.testimonial.coverImage}
                     alt={couple.brideName || "Wedding Story"}
                     fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 70vw, 50vw"
                     priority={i === 0}
                     className="object-cover scale-110"
                   />
@@ -165,32 +165,23 @@ export default function TestimonialCouple({ couples = [] }) {
           </div>
         </div>
 
-        {/* TEXT SIDE — FIXED LAYOUT */}
-        <div className="lg:col-span-5 flex flex-col h-full justify-center items-center gap-5">
-
-          {/* TEXT BLOCK */}
-          <div
-            ref={textContentRef}
-            className="will-change-transform"
-          >
-            <p className="text-3xl md:text-6xl xl:text-7xl text-secondary font-light italic leading-[1.15] tracking-tight max-w-2xl max-h-[50vh]  pr-4">
+        {/* TEXT SIDE */}
+        <div className="lg:col-span-5 flex flex-col h-full justify-center gap-5">
+          <div ref={textContentRef} className="will-change-transform">
+            <p className="text-3xl md:text-5xl xl:text-6xl text-secondary font-light italic leading-[1.15] tracking-tight max-w-2xl pr-4">
               “{couples[currentIndex]?.testimonial?.caption}”
             </p>
-            <div className="h-[1px] w-full bg-gradient-to-r from-accent via-accent/20 to-transparent mb-8 mt-2" />
+            <div className="h-[1px] w-full bg-gradient-to-r from-accent via-accent/20 to-transparent mb-8 mt-4" />
 
-            <h2 className="text-sm md:text-3xl font-display tracking-tight leading-[1.2] text-primary">
+            <h2 className="text-xl md:text-2xl font-display tracking-tight leading-[1.2] text-primary">
               <span className="font-light">
-               - {couples[currentIndex]?.groomName}
+                — {couples[currentIndex]?.groomName}
               </span>
             </h2>
-
-
-            
           </div>
 
-          {/* NAVIGATION — LOCKED TO BOTTOM */}
-          <div className="mt-auto flex flex-col items-center justify-start gap-2">
-
+          {/* NAVIGATION */}
+          <div className="mt-8 flex flex-col items-start gap-4">
             <div className="flex items-center space-x-4">
               <button
                 onClick={prev}
