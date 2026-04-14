@@ -49,8 +49,9 @@ export default function AboutPage() {
           src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=2000"
           alt="Work"
           fill
+          loading="eager"
           sizes="100vw"
-          className="object-cover opacity-70 grayscale"
+          className="object-cover  grayscale"
         />
         <div className="absolute inset-0 flex items-center justify-center text-center px-6">
           <h3 className="font-display text-2xl md:text-5xl text-bg">
@@ -88,7 +89,7 @@ export default function AboutPage() {
      <section className="pb-32 px-6 text-center">
   <div className="max-w-4xl mx-auto border-t border-primary/10 pt-16">
     <p className="text-xl md:text-2xl text-primary mb-8">
-      Want to work with us?
+      We woud love to work with you!
     </p>
     
     {/* Wrap the button in a Link component */}

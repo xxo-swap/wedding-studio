@@ -12,29 +12,33 @@ export default function Portfolio({ weddings }) {
     if (!weddings?.length || !containerRef.current) return;
 
     const ctx = gsap.context(() => {
-      gsap.utils.toArray(".reveal-section", containerRef.current).forEach((section) => {
-        gsap.from(section.querySelectorAll(".reveal-item"), {
-          y: 60,
-          opacity: 0,
-          duration: 1.2,
-          stagger: 0.2,
-          scrollTrigger: {
-            trigger: section,
-            start: "top 80%",
-          },
+      gsap.utils
+        .toArray(".reveal-section", containerRef.current)
+        .forEach((section) => {
+          gsap.from(section.querySelectorAll(".reveal-item"), {
+            y: 60,
+            opacity: 0,
+            duration: 1.2,
+            stagger: 0.2,
+            scrollTrigger: {
+              trigger: section,
+              start: "top 80%",
+            },
+          });
         });
-      });
 
-      gsap.utils.toArray(".parallax-img", containerRef.current).forEach((img) => {
-        gsap.to(img, {
-          yPercent: -20,
-          ease: "none",
-          scrollTrigger: {
-            trigger: img,
-            scrub: true,
-          },
+      gsap.utils
+        .toArray(".parallax-img", containerRef.current)
+        .forEach((img) => {
+          gsap.to(img, {
+            yPercent: -20,
+            ease: "none",
+            scrollTrigger: {
+              trigger: img,
+              scrub: true,
+            },
+          });
         });
-      });
     }, containerRef);
 
     return () => ctx.revert();
@@ -55,9 +59,7 @@ export default function Portfolio({ weddings }) {
           {/* IMAGE */}
           <Link
             href={`/story/${wedding.slug}`}
-            className={`relative overflow-hidden bg-primary/5 shadow-2xl block ${
-              "w-full md:w-2/3 aspect-[3/4]"
-            }`}
+            className={`relative overflow-hidden bg-primary/5 shadow-2xl block ${"w-full md:w-2/3 aspect-[3/4]"}`}
           >
             <div className="parallax-img relative w-full h-[160%] -top-[10%]">
               <Image
@@ -88,8 +90,7 @@ export default function Portfolio({ weddings }) {
             </h2>
 
             <p className="reveal-item font-body text-lg leading-relaxed text-text/70 italic">
-              A curated collection capturing presence, emotion, and timeless
-              moments from their celebration.
+              {wedding.description}
             </p>
 
             <div

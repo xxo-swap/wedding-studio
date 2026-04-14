@@ -3,6 +3,8 @@ export const weddings = [
     slug: "shilpa-ankush",
     brideName: "Shilpa",
     groomName: "Ankush",
+    description:
+      "An intimate sunset celebration filled with laughter, quiet glances, and heartfelt family moments that unfolded naturally through the day.",
     folder: "/client1",
     featured: true,
     featuredImage: "/client1/3.webp",
@@ -31,6 +33,8 @@ export const weddings = [
     slug: "aparajeeta-vishal",
     brideName: "Aparajeeta",
     groomName: "Vishal",
+    description:
+      "A vibrant mandap, emotional exchanges, and dramatic baraat energy blending tradition with expressive candid moments.",
     folder: "/client2",
     featured: true,
     featuredImage: "/client2/1.webp",
@@ -52,7 +56,7 @@ export const weddings = [
     ],
     testimonial: {
       hasTestimonial: true,
-      caption: "Absolutely magical!",
+      caption: "An unforgettable experience!",
       coverImage: "/client2/8.webp",
       coverAlt: "Dramatic entry with fireworks",
     },
@@ -61,6 +65,8 @@ export const weddings = [
     slug: "poonam-vicky",
     brideName: "Poonam",
     groomName: "Vicky",
+    description:
+      "A grand multi-event wedding story capturing elegance, celebration, and the couple’s playful chemistry across ceremonies.",
     folder: "/client3",
     featured: true,
     featuredImage: "/client3/23.JPG",
@@ -96,7 +102,7 @@ export const weddings = [
     ],
     testimonial: {
       hasTestimonial: true,
-      caption: "Absolutely magical!",
+      caption: "A magical day we'll cherish forever!",
       coverImage: "/client3/23.JPG",
       coverAlt: "Dramatic entry with fireworks",
     },
@@ -105,6 +111,8 @@ export const weddings = [
     slug: "anshu-saurabh",
     brideName: "Anshu",
     groomName: "Saurabh",
+    description:
+      "A lively celebration of rituals, dance, emotion, and family warmth documented through rich details and candid frames.",
     folder: "/client2",
     featured: true,
     featuredImage: "/client4/20.JPG",
@@ -144,7 +152,7 @@ export const weddings = [
     ],
     testimonial: {
       hasTestimonial: true,
-      caption: "Absolutely magical!",
+      caption: "Perfectly captured moments of our love story!",
       coverImage: "/client4/20.JPG",
       coverAlt: "Dramatic entry with fireworks",
     },
