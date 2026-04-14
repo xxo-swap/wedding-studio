@@ -18,9 +18,7 @@ export const weddings = [
       { src: "/client1/6.webp", alt: "Family portrait during the ceremony" },
       { src: "/client1/7.webp", alt: "Shilpa laughing during the wedding reception" },
       { src: "/client1/8.webp", alt: "Groom welcoming the bride" },
-      { src: "/client1/9.webp", alt: "Ceremony decoration details" },
       { src: "/client1/10.webp", alt: "Cake cutting ceremony" },
-      { src: "/client1/11.webp", alt: "Couple dancing under lights" },
     ],
     testimonial: {
       hasTestimonial: true,
@@ -166,14 +164,14 @@ export const scrollImages = [
 
 
 export const heroImages = [
-  { src: "/client2/1.webp", alt: "Couple walking hand in hand" },
-  { src: "/client2/2.webp", alt: "Bride and groom under a floral arch" },
-  { src: "/client2/3.webp", alt: "Groom on a horse for the Baraat" },
-  { src: "/client2/4.webp", alt: "Exchange of garlands" },
-  { src: "/client2/5.webp", alt: "Bride walking down the aisle" },
-  { src: "/client2/6.webp", alt: "Couple seated at the mandap" },
-  { src: "/client2/7.webp", alt: "Guests cheering" },
-  { src: "/client2/8.webp", alt: "Dramatic entry with fireworks" },
-  { src: "/client2/9.webp", alt: "Groom looking at his watch" },
+  { src: "/client1/2.webp", alt: "Couple walking hand in hand" },
+  { src: "/client2/10.webp", alt: "Bride and groom under a floral arch" },
+  { src: "/client2/11.webp", alt: "Groom on a horse for the Baraat" },
+  { src: "/client2/1.webp", alt: "Exchange of garlands" },
+  { src: "/client3/1.JPG", alt: "Bride walking down the aisle" },
+  { src: "/client3/15.JPG", alt: "Couple seated at the mandap" },
+  { src: "/client3/16.JPG", alt: "Guests cheering" },
+  { src: "/client4/25.JPG", alt: "Dramatic entry with fireworks" },
+  { src: "/client4/2.JPG", alt: "Groom looking at his watch" },
 
 ]

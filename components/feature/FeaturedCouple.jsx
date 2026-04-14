@@ -24,7 +24,7 @@ export default function FeaturedCouple({ couple }) {
 
     const ctx = gsap.context(() => {
       gsap.to(featureImageRef.current, {
-        y: -150,
+        y: -100,
         ease: "none",
         scrollTrigger: {
           trigger: outerWrapper.current,
@@ -65,7 +65,7 @@ export default function FeaturedCouple({ couple }) {
           {/* IMAGE SIDE */}
           <div
             ref={outerWrapper}
-            className="relative w-full h-[420px] md:h-[600px] overflow-hidden rounded-xl shadow-xl"
+            className="relative w-full h-[420px] md:h-[600px] overflow-hidden  shadow-xl"
           >
             <div
               ref={featureImageRef}
@@ -75,8 +75,11 @@ export default function FeaturedCouple({ couple }) {
                 src={couple.featuredImage}
                 alt={`${couple.brideName} & ${couple.groomName}`}
                 fill
+                // This tells the browser:
+                // 100% width on mobile, 50% on tablets, 33% on desktop
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 priority={couple.featured}
-                className="object-cover transition duration-700 ease-out hover:scale-105"
+                className="object-cover object-top transition duration-700 ease-out hover:scale-105"
               />
             </div>
 

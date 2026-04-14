@@ -146,7 +146,7 @@ export default function ContactPage() {
                 </label>
                 <input
                   type="text"
-                  placeholder="City, Country"
+                  placeholder="City"
                   className="w-full bg-transparent border-b border-primary/20 py-4 font-body text-xl focus:outline-none focus:border-primary transition-colors placeholder:text-primary/20"
                 />
               </div>
@@ -155,11 +155,11 @@ export default function ContactPage() {
             {/* Story */}
             <div className="group relative">
               <label className="font-ui text-xs uppercase tracking-widest text-secondary group-focus-within:text-accent transition-colors">
-                Tell us your story
+                Brief
               </label>
               <textarea
                 rows={5}
-                placeholder="What does your love feel like?"
+                placeholder="Tell us your about the events."
                 className="w-full bg-transparent border-b border-primary/20 py-4 font-body text-xl focus:outline-none focus:border-primary transition-colors placeholder:text-primary/20 resize-none"
               />
             </div>

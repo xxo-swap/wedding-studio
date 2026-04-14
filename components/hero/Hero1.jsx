@@ -86,9 +86,9 @@ function Hero1() {
             <span className="italic font-normal text-white/90">Forever</span>
           </h1>
 
-          <Link href="#featured" className="mt-8 group">
+          <Link href="https://www.youtube.com/watch?v=sD0WhhtEwsM" className="mt-8 group">
             <button className="px-8 py-3 rounded-full font-ui text-[9px] tracking-[0.3em] uppercase border border-white/20 text-white group-hover:bg-white group-hover:text-black transition-all duration-500">
-              Watch Film
+              Watch On Youtube
             </button>
           </Link>
         </div>

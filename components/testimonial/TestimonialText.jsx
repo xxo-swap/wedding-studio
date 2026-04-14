@@ -156,7 +156,7 @@ export default function TestimonialText() {
         >
           Every wedding leaves a memory behind. Here’s what our couples carried
           with them — moments of emotion, connection, and celebration that
-          remain long after the day has passed.
+          <br />remain long after the day has passed.
         </p>
       </div>
     </section>

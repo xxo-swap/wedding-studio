@@ -82,9 +82,10 @@ export default function Hero() {
                   <Image
                     src={img.src}
                     alt={img.alt}
+                    loading="eager"
                     fill
                     sizes="33vw"
-                    className="object-cover"
+                    className="object-cover w-full h-full transition-transform duration-500 ease-out hover:scale-105"
                   />
                 </div>
               );
