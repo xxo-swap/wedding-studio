@@ -28,9 +28,20 @@ const inter = Inter({
 });
 
 export const metadata = {
-  title: "Luxury Wedding Photographer | Aarav Studios",
-  description: "Cinematic wedding photography in Delhi NCR.",
-};
+  title: "Wedding Photographer in Gorakhpur | Swastik Pictures",
+  description:
+    "Candid wedding photography and cinematic wedding films in Gorakhpur. Swastik Pictures captures haldi, mehndi, sangeet, baraat, and wedding rituals with creative storytelling and timeless visuals.",
+  keywords: [
+    "Wedding Photographer in Gorakhpur",
+    "Candid Wedding Photography Gorakhpur",
+    "Wedding Videography Gorakhpur",
+    "Cinematic Wedding Films",
+    "Pre Wedding Shoot Gorakhpur",
+    "Haldi Mehndi Sangeet Photography",
+    "Baraat Wedding Coverage",
+    "Swastik Pictures",
+  ],
+}
 
 export default function RootLayout({ children }) {
   return (
